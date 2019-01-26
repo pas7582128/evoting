@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="form.css">
+<script>
+function previewFile(){
+       var preview = document.querySelector('img'); 
+       var file    = document.querySelector('input[type=file]').files[0]; 
+       var reader  = new FileReader();
+
+       reader.onloadend = function () {
+           preview.src = reader.result;
+       }
+
+       if (file) {
+           reader.readAsDataURL(file);
+       } else {
+           preview.src = "";
+       }
+}
+previewFile();
+function Captcha(){
+var alpha = new Array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
+var i;
+for(i=0;i<6;i++)
+{
+   var a = alpha[Math.floor(Math.random() * alpha.length)];
+   var b = alpha[Math.floor(Math.random() * alpha.length)];
+   var c = alpha[Math.floor(Math.random() * alpha.length)];
+   var d = alpha[Math.floor(Math.random() * alpha.length)];
+   var e = alpha[Math.floor(Math.random() * alpha.length)];
+   var f = alpha[Math.floor(Math.random() * alpha.length)];
+   var g = alpha[Math.floor(Math.random() * alpha.length)];
+}
+var code = a + ' ' + b + ' ' + ' ' + c + ' ' + d + ' ' + e + ' '+ f + ' ' + g;
+document.getElementById("mainCaptcha").value = code;
+}
+function removeSpaces(string){
+return string.split(' ').join('');
+}
+function myFunction(gender) {
+    document.getElementById("result").value = gender;
+}
+function validate()
+{
+   var a=document.myform.fname.value;
+   var b=document.myform.mname.value;
+   var c=document.myform.lname.value;
+   var d=document.myform.dob.value;
+   var e;
+   var f=document.myform.adhaar.value;
+   var g=document.myform.mail.value;
+   var h=document.myform.phone.value;
+   var m=document.myform.add.value;
+   var j=document.myform.city.value;
+   var k=document.myform.pin.value;
+   var l=document.myform.state.value;
+   var x=document.myform.pwd.value;
+   var y=document.myform.cpwd.value;
+   var flag=0; 
+   var use=document.myform.user.value;
+   if(a=="")
+  {
+    window.alert("Enter the first name");
+	return false;
+  }
+  else if(a.length>15)
+  {
+    window.alert("Enter first name again");
+	return false;
+  }
+  for(i=0;i<a.length;i++)
+{
+   if((a.charCodeAt(i)>=97 && a.charCodeAt(i)<=122) || (a.charCodeAt(i)>=65 && a.charCodeAt(i)<=90))
+   {
+      flag=0;
+   }
+   else
+   { 
+      flag=1;
+     break; 
+   }
+}
+  if(flag==1)
+{
+   window.alert("Invalid first name");
+   return false;
+}
+if(b=="")
+  {
+    window.alert("Enter the middle name");
+	return false;
+  }
+  else if(b.length>15)
+  {
+    window.alert("Enter middle name again");
+	return false;
+  }
+  for(i=0;i<b.length;i++)
+{
+   if((b.charCodeAt(i)>=97 && b.charCodeAt(i)<=122) || (b.charCodeAt(i)>=65 && b.charCodeAt(i)<=90))
+   {
+      flag=0;
+   }
+   else
+   { 
+      flag=1;
+     break; 
+   }
+}
+  if(flag==1)
+{
+   window.alert("Invalid middle name");
+   return false;
+}
+if(c=="")
+  {
+    window.alert("Enter the last name");
+	return false;
+  }
+  else if(c.length>15)
+  {
+    window.alert("Enter last name again");
+	return false;
+  }
+  for(i=0;i<c.length;i++)
+{
+   if((c.charCodeAt(i)>=97 && c.charCodeAt(i)<=122) || (c.charCodeAt(i)>=65 && c.charCodeAt(i)<=90))
+   {
+      flag=0;
+   }
+   else
+   { 
+      flag=1;
+     break; 
+   }
+}
+  if(flag==1)
+{
+   window.alert("Invalid last name");
+   return false;
+}
+var dateformat = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+if(document.myform.dob.value.match(dateformat))
+{
+  var opera1 = document.myform.dob.value.split('/');
+  var opera2 = document.myform.dob.value.split('-');
+  lopera1 = opera1.length;
+  lopera2 = opera2.length;
+  if (lopera1>1)
+  {
+  var pdate = document.myform.dob.value.split('/');
+  }
+  else if (lopera2>1)
+  {
+  var pdate = document.myform.dob.value.split('-');
+  }
+  var dd = parseInt(pdate[0]);
+  var mm  = parseInt(pdate[1]);
+  var yy = parseInt(pdate[2]);
+  var ListofDays = [31,28,31,30,31,30,31,31,30,31,30,31];
+  if (mm==1 || mm>2)
+  {
+  if (dd>ListofDays[mm-1])
+  {
+  alert('Invalid date format!');
+  return false;
+  }
+  }
+  if (mm==2)
+  {
+  var lyear = false;
+  if ( (!(yy % 4) && yy % 100) || !(yy % 400)) 
+  {
+  lyear = true;
+  }
+  if ((lyear==false) && (dd>=29))
+  {
+  alert('Invalid date format!');
+  return false;
+  }
+  if ((lyear==true) && (dd>29))
+  {
+  alert('Invalid date format!');
+  return false;
+  }
+  }
+  }
+  else
+  {
+  alert("Invalid date format!");
+  return false;
+  }
+  
+  if(yy>=1999){
+  alert("Your Age is Less Than 18");
+  return false;
+  }
+  
+e=document.querySelector('input[name="gender"]:checked').value;
+if(f=="")
+  {
+    window.alert("Enter adhaar card number");
+	return false;
+  }
+  else if(f.length!=12)
+  {
+    window.alert("Enter adhaar card number again");
+	return false;
+  }
+  for(i=0;i<f.length;i++)
+{
+   if(f.charCodeAt(i)>=48 && f.charCodeAt(i)<=57)
+   {
+      flag=0;
+   }
+   else
+   { 
+      flag=1;
+     break; 
+   }
+}
+  if(flag==1)
+{
+   window.alert("Invalid adhaar card number");
+   return false;
+}
+if(h=="")
+  {
+    window.alert("Enter mobile number");
+	return false;
+  }
+  else if(h.length!=10)
+  {
+    window.alert("Enter mobile number again");
+	return false;
+  }
+  for(i=0;i<h.length;i++)
+{
+   if(h.charCodeAt(i)>=48 && h.charCodeAt(i)<=57)
+   {
+      flag=0;
+   }
+   else
+   { 
+      flag=1;
+     break; 
+   }
+}
+  if(flag==1)
+{
+   window.alert("Invalid mobile number");
+   return false;
+}
+if(m=="")
+{
+  window.alert("Enter the address");
+  return false;
+}
+if(j=="")
+  {
+    window.alert("Enter the city");
+	return false;
+  }
+  else if(j.length>30)
+  {
+    window.alert("Enter city again");
+	return false;
+  }
+  for(i=0;i<j.length;i++)
+{
+   if((j.charCodeAt(i)>=97 && j.charCodeAt(i)<=122) || (j.charCodeAt(i)>=65 && j.charCodeAt(i)<=90))
+   {
+      flag=0;
+   }
+   else
+   { 
+      flag=1;
+     break; 
+   }
+}
+if(flag==1)
+{
+   window.alert("Invalid city");
+   return false;
+}
+if(k=="")
+  {
+    window.alert("Enter the pincode");
+	return false;
+  }
+  else if(k.length!=6)
+  {
+    window.alert("Enter pincode again");
+	return false;
+  }
+  for(i=0;i<k.length;i++)
+{
+   if(k.charCodeAt(i)>=48 && k.charCodeAt(i)<=57)
+   {
+      flag=0;
+   }
+   else
+   { 
+      flag=1;
+     break; 
+   }
+}
+  if(flag==1)
+{
+   window.alert("Invalid pincode");
+   return false;
+}
+if(l=="")
+  {
+    window.alert("Enter state");
+	return false;
+  }
+  else if(l.length>30)
+  {
+    window.alert("Enter state again");
+	return false;
+  }
+  for(i=0;i<l.length;i++)
+{
+   if((l.charCodeAt(i)>=97 && l.charCodeAt(i)<=122) || (l.charCodeAt(i)>=65 && l.charCodeAt(i)<=90))
+   {
+      flag=0;
+   }
+   else
+   { 
+      flag=1;
+     break; 
+   }
+}
+  if(flag==1)
+{
+   window.alert("Invalid state");
+   return false;
+}
+
+if(use=="")
+{
+   window.alert("Enter a user id");
+   return false;
+}
+if(use.length<8)
+{
+   window.alert("User ID too short");
+   return false;
+}
+if(x=="")
+{
+  window.alert("Enter a password");
+  return false;
+}
+if(x.length<8)
+{
+   window.alert("Enter a strong password");
+   return false;
+}
+if(y!=x)
+{
+  window.alert("Password and confirm password not matched");
+  return false;
+  }
+var string1 = removeSpaces(document.getElementById('mainCaptcha').value);
+var string2 = removeSpaces(document.getElementById('txtInput').value);
+if (string1 != string2)
+{
+  window.alert(" Wrong Captcha");
+  return false;
+}
+/*
+document.write("Name:"+a+" "+b+" "+c+"</br>");
+document.write("Date of Birth:"+d+"</br>");
+document.write("Gender:"+e+"</br>");
+document.write("Adhaar Card number:"+f+"</br>");
+document.write("Email ID:"+g+"</br>");
+document.write("Mobile Number:"+h+"</br>");
+document.write("Address:"+m+"</br>");
+document.write("City:"+j+"</br>");
+document.write("Pincode:"+k+"</br>");
+document.write("State:"+l+"</br>");
+*/
+}
+/*
+function validate1(){
+ var check =  validate();
+ if(check){
+    <?php
+	header("Location:Database.php")or
+		die("Could not select db: " . mysql_error());
+	?>
+ }
+ 
+
+}*/
+</script>
+<style>
+
+form{
+background:url(4.jpg);
+background-size: 100% 100%;
+background-repeat: no-repeat;
+}
+span#s1{
+float:left;
+width:500px;
+}
+span#s2{
+float:left;
+width:500px;
+}
+span#s3{
+float:left;
+width:700px;
+}
+</style>
+
+</head>
+<body onload="Captcha();">
+<div class="rel_top">
+
+<div class="absolute_top" style="background-color:#ff944d;  top:0px;">
+
+<h1 style="color:black; text-align:center; margin:10px;">EVOTING</h1>
+</div>
+
+<div class ="absolute_sec_top">
+<a href="Main.html"><button class="btn Home">HOME</button></a>
+<!--<button class="btn Vote">VOTE</button>
+<button class="btn Result">View Result</button>
+<button class="btn Extra1">Extra</button>
+<button class="btn Extra2">Extra</button>-->
+</div>
+<div class ="absolute_mid">
+<h1 style="color:#663300; text-align:center; margin:10px;">Welcome to the Online Voting System</h1>
+<hr width="85%">
+
+
+<form name="myform" style="background-color:rgb(0,180,270);" onsubmit="return validate()" action = "Database.php" method = "post">
+<fieldset>
+<legend><b>User Registration</b></legend><br>
+<input type="file" onchange="previewFile()"><br>
+<img src="" height="200" alt="Image preview..."><br><br>
+<span id="s1"><b><u>NAME:</u></b></span><input type="text" name="fname" id="fn"><input type="text" name="mname" id="mn"><input type="text" name="lname" id="ln"><span style="color:rgb(255,50,0);"><b>(Maximum 15 characters in each)</b></span><br>
+<span style="padding-left:500px;"></span><b>(First Name)</b><span style="padding-left:65px;"></span><b>(Middle Name)</b><span style="padding-left:45px;"></span><b>(Last Name)</b><br><br>
+<span id="s1"><b><u>DATE OF BIRTH:</u></b></span><input type="text" name="dob" id="db"><span style="color:rgb(255,50,0);"><b>(dd-mm-yyyy or dd/mm/yyyy formmat)</b></span><br><br>
+<span id="s1"><b><u>GENDER:</u></b></span><input type="radio" name="gender" value="Male" id="gen">Male<br><br>
+<span id="s1" style="padding-left:500px"><input type="radio" name="gender" value="Female" id="gen">Female</span><br><br>
+<span id="s1" style="padding-left:500px"><input type="radio" name="gender" value="Others" id="gen">Others</span><br><br>
+<span id="s1"><b><u>ADHAAR CARD NUMBER:</u></b></span><input type="text" name="adhaar" id="adno"><span style="color:rgb(255,50,0);"><b>(12 Digit Adhaar card number)</b></span><br><br>
+<span id="s1"><b><u>EMAIL ID:</u></b></span><input type="email" name="mail" id="Mailid"><span style="color:rgb(255,50,0);"><b>(Optional)</b></span><br><br>
+<span id="s1"><b><u>MOBILE NUMBER:</u></b></span><input type="text" name="phone" id="m_no"><br><br>
+<span id="s1"><b><u>ADDRESS:</u></b></span><input type="text" name="add" id="add_id"><br><br>
+<span id="s1"><b><u>CITY:</u></b></span><input type="text" name="city"id="cityid"><span style="color:rgb(255,50,0);"><b>(Maximum 30 characters)</b></span><br><br>
+<span id="s1"><b><u>PINCODE:</u></b></span><input type="text" name="pin" id="pin_no"><span style="color:rgb(255,50,0);"><b>(6 Digit pincode)</b></span><br><br>
+<span id="s1"><b><u>STATE:</u></b></span><input type="text" name="state" id="state_id"><span style="color:rgb(255,50,0);"><b>(Maximum 30 characters)</b></span><br><br>
+<span id="s1"><b><u>USER ID:</u></b></span><input type="text" name="user" id="user_id"><span style="color:rgb(255,50,0);"><b>(Minimum 8 characters)</b></span><br><br>
+<span id="s1"><b><u>PASSWORD:</u></b></span><input type="text" name="pwd" id="pwd_id"><span style="color:rgb(255,50,0);"><b>(Miniimum 8 characters)</b></span><br><br>
+<span id="s1"><b><u>CONFIRM PASSWORD:</u></b></span><input type="text" name="cpwd" id="cpwd_id"><span style="color:rgb(255,50,0);"><b>(Enter the same password)</b></span><br><br>
+<span id="s1"><b><u>CAPTCHA:</u></b></span>
+<input type="text" id="mainCaptcha" readonly>
+<input type="button" id="refresh" value="Refresh" onclick="Captcha();"><br><br>
+<span style="padding-left:500px"></span><input type="text" id="txtInput">
+</fieldset><br>
+<center><input type="Submit" name = "Submit" value="Submit"> <input type="reset"></center>
+</form>
+
+
+
+</div>
+
+</body>
+</html>

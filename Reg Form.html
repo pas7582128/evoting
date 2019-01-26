@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function myFunction(gender) {
+    document.getElementById("result").value = gender;
+}
+function validate()
+{
+   var a=document.myform.fname.value;
+   var b=document.myform.mname.value;
+   var c=document.myform.lname.value;
+   var d=document.myform.dob.value;
+   var e;
+   var f=document.myform.adhaar.value;
+   var g=document.myform.mail.value;
+   var h=document.myform.phone.value;
+   var m=document.myform.add.value;
+   var j=document.myform.city.value;
+   var k=document.myform.pin.value;
+   var l=document.myform.state.value;
+   var flag=0; 
+   if(a=="")
+  {
+    window.alert("Enter the first name");
+	return false;
+  }
+  else if(a.length>15)
+  {
+    window.alert("Enter first name again");
+	return false;
+  }
+  for(i=0;i<a.length;i++)
+{
+   if((a.charCodeAt(i)>=97 && a.charCodeAt(i)<=122) || (a.charCodeAt(i)>=65 && a.charCodeAt(i)<=90))
+   {
+      flag=0;
+   }
+   else
+   { 
+      flag=1;
+     break; 
+   }
+}
+  if(flag==1)
+{
+   window.alert("Invalid first name");
+   return false;
+}
+if(b=="")
+  {
+    window.alert("Enter the middle name");
+	return false;
+  }
+  else if(b.length>15)
+  {
+    window.alert("Enter middle name again");
+	return false;
+  }
+  for(i=0;i<b.length;i++)
+{
+   if((b.charCodeAt(i)>=97 && b.charCodeAt(i)<=122) || (b.charCodeAt(i)>=65 && b.charCodeAt(i)<=90))
+   {
+      flag=0;
+   }
+   else
+   { 
+      flag=1;
+     break; 
+   }
+}
+  if(flag==1)
+{
+   window.alert("Invalid middle name");
+   return false;
+}
+if(c=="")
+  {
+    window.alert("Enter the last name");
+	return false;
+  }
+  else if(c.length>15)
+  {
+    window.alert("Enter last name again");
+	return false;
+  }
+  for(i=0;i<c.length;i++)
+{
+   if((c.charCodeAt(i)>=97 && c.charCodeAt(i)<=122) || (c.charCodeAt(i)>=65 && c.charCodeAt(i)<=90))
+   {
+      flag=0;
+   }
+   else
+   { 
+      flag=1;
+     break; 
+   }
+}
+  if(flag==1)
+{
+   window.alert("Invalid last name");
+   return false;
+}
+e=document.querySelector('input[name="gender"]:checked').value;
+if(f=="")
+  {
+    window.alert("Enter adhaar card number");
+	return false;
+  }
+  else if(f.length!=12)
+  {
+    window.alert("Enter adhaar card number again");
+	return false;
+  }
+  for(i=0;i<f.length;i++)
+{
+   if(f.charCodeAt(i)>=48 && f.charCodeAt(i)<=57)
+   {
+      flag=0;
+   }
+   else
+   { 
+      flag=1;
+     break; 
+   }
+}
+  if(flag==1)
+{
+   window.alert("Invalid adhaar card number");
+   return false;
+}
+if(h=="")
+  {
+    window.alert("Enter mobile number");
+	return false;
+  }
+  else if(h.length!=10)
+  {
+    window.alert("Enter mobile number again");
+	return false;
+  }
+  for(i=0;i<h.length;i++)
+{
+   if(h.charCodeAt(i)>=48 && h.charCodeAt(i)<=57)
+   {
+      flag=0;
+   }
+   else
+   { 
+      flag=1;
+     break; 
+   }
+}
+  if(flag==1)
+{
+   window.alert("Invalid mobile number");
+   return false;
+}
+if(j=="")
+  {
+    window.alert("Enter the city");
+	return false;
+  }
+  else if(j.length>30)
+  {
+    window.alert("Enter city again");
+	return false;
+  }
+  for(i=0;i<j.length;i++)
+{
+   if((j.charCodeAt(i)>=97 && j.charCodeAt(i)<=122) || (j.charCodeAt(i)>=65 && j.charCodeAt(i)<=90))
+   {
+      flag=0;
+   }
+   else
+   { 
+      flag=1;
+     break; 
+   }
+}
+if(flag==1)
+{
+   window.alert("Invalid city");
+   return false;
+}
+if(k=="")
+  {
+    window.alert("Enter the pincode");
+	return false;
+  }
+  else if(k.length!=6)
+  {
+    window.alert("Enter pincode again");
+	return false;
+  }
+  for(i=0;i<k.length;i++)
+{
+   if(k.charCodeAt(i)>=48 && k.charCodeAt(i)<=57)
+   {
+      flag=0;
+   }
+   else
+   { 
+      flag=1;
+     break; 
+   }
+}
+  if(flag==1)
+{
+   window.alert("Invalid pincode");
+   return false;
+}
+if(l=="")
+  {
+    window.alert("Enter state");
+	return false;
+  }
+  else if(l.length>30)
+  {
+    window.alert("Enter state again");
+	return false;
+  }
+  for(i=0;i<l.length;i++)
+{
+   if((l.charCodeAt(i)>=97 && l.charCodeAt(i)<=122) || (l.charCodeAt(i)>=65 && l.charCodeAt(i)<=90))
+   {
+      flag=0;
+   }
+   else
+   { 
+      flag=1;
+     break; 
+   }
+}
+  if(flag==1)
+{
+   window.alert("Invalid state");
+   return false;
+}
+document.write("Name:"+a+" "+b+" "+c+"</br>");
+document.write("Date of Birth:"+d+"</br>");
+document.write("Gender:"+e+"</br>");
+document.write("Adhaar Card number:"+f+"</br>");
+document.write("Email ID:"+g+"</br>");
+document.write("Mobile Number:"+h+"</br>");
+document.write("Address:"+m+"</br>");
+document.write("City:"+j+"</br>");
+document.write("Pincode:"+k+"</br>");
+document.write("State:"+l+"</br>");
+}
+</script>
+<style>
+body{
+background:url(4.jpg);
+background-size: 100% 100%;
+background-repeat: no-repeat;
+}
+form{
+background:url(4.jpg);
+background-size: 100% 100%;
+background-repeat: no-repeat;
+}
+span#s1{
+float:left;
+width:500px;
+}
+span#s2{
+float:left;
+width:500px;
+}
+span#s3{
+float:left;
+width:700px;
+}
+</style>
+</head>
+<body>
+<form name="myform" style="background-color:rgb(0,180,270);" onsubmit="return validate()">
+<fieldset>
+<legend><b>User Registration</b></legend><br>
+<span id="s1"><b><u>NAME:</u></b></span><input type="text" name="fname"><input type="text" name="mname"><input type="text" name="lname"><span style="color:rgb(255,50,0);"><b>(Maximum 15 characters in each)</b></span><br>
+<span style="padding-left:500px;"></span><b>(First Name)</b><span style="padding-left:65px;"></span><b>(Middle Name)</b><span style="padding-left:45px;"></span><b>(Last Name)</b><br><br>
+<span id="s1"><b><u>DATE OF BIRTH:</u></b></span><input type="date" name="dob" required><br><br>
+<span id="s1"><b><u>GENDER:</u></b></span><input type="radio" name="gender" value="Male">Male<br><br>
+<span id="s1" style="padding-left:500px"><input type="radio" name="gender" value="Female">Female</span><br><br>
+<span id="s1" style="padding-left:500px"><input type="radio" name="gender" value="Others">Others</span><br><br>
+<span id="s1"><b><u>ADHAAR CARD NUMBER:</u></b></span><input type="text" name="adhaar"><span style="color:rgb(255,50,0);"><b>(12 Digit Adhaar card number)</b></span><br><br>
+<span id="s1"><b><u>EMAIL ID:</u></b></span><input type="email" name="mail"><span style="color:rgb(255,50,0);"><b>(Optional)</b></span><br><br>
+<span id="s1"><b><u>MOBILE NUMBER:</u></b></span><input type="text" name="phone"><br><br>
+<span id="s1"><b><u>ADDRESS:</u></b></span><input type="text" name="add"><br><br>
+<span id="s1"><b><u>CITY:</u></b></span><input type="text" name="city"><span style="color:rgb(255,50,0);"><b>(Maximum 30 characters)</b></span><br><br>
+<span id="s1"><b><u>PINCODE:</u></b></span><input type="text" name="pin"><span style="color:rgb(255,50,0);"><b>(6 Digit pincode)</b></span><br><br>
+<span id="s1"><b><u>STATE:</u></b></span><input type="text" name="state"><span style="color:rgb(255,50,0);"><b>(Maximum 30 characters)</b></span><br><br>
+<span id="s1"><b><u>Captcha:</u></b></span>
+<img id="i" src="input-black.gif" style="width:150px"><br><br>
+<span style="padding-left:500px"></span><input type="text">
+<button onclick="document.getElementById('i').src='r.jpg'">Captcha</button><br><br>
+</fieldset><br>
+<center><input type="submit"> <input type="reset"></center>
+</form>
+</body>
+</html>
